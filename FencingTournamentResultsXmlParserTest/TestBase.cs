@@ -8,6 +8,6 @@ namespace FencingTournamentResultsXmlParser
 {
     public class TestBase
     {
-        internal string filepath = "C:\\Users\\johnathan\\source\\repos\\fencing\\FencingTounamentResultsXmlParser\\TournamentXmlFiles\\Presidents Cup Men's Epee.xml";
+        internal string filepath = "../../../FencingTounamentResultsXmlParser/TournamentXmlFiles/Presidents Cup Men's Epee.xml";
     }
 }
