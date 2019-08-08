@@ -52,26 +52,17 @@ namespace FencingTournamentResultsXmlParser
 
         public IEnumerable<XElement> getPoules()
         {
-            IEnumerable<XElement> xPoules =
-                from el in xdoc.Descendants("Poule")
-                select el;
-            return xPoules;
+            return getxElementsFromRoot("Poule");
         }
 
         public IEnumerable<XElement> getMatches(XElement poule)
         {
-            IEnumerable<XElement> xMatches =
-                from el in poule.Descendants("Match")
-                select el;
-            return xMatches;
+            return getxElementsFromxElement(poule, "Match");
         }
 
         public IEnumerable<XElement> getMatchResults(XElement match)
         {
-            IEnumerable<XElement> xMatcheResults =
-                from el in match.Descendants("Tireur")
-                select el;
-            return xMatcheResults;
+            return getxElementsFromxElement(match, "Tireur");
         }
     }
 }

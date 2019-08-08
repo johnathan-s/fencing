@@ -18,6 +18,22 @@ namespace FencingTournamentResultsXmlParser
             else { this.xdoc = XElement.Load(filepath); }
         }
 
+        public IEnumerable<XElement> getxElementsFromRoot(String tagName)
+        {
+            IEnumerable<XElement> xElements =
+                from el in xdoc.Descendants(tagName)
+                select el;
+            return xElements;
+        }
+
+        public IEnumerable<XElement> getxElementsFromxElement(XElement xElement, string tagName)
+        {
+            IEnumerable<XElement> xElements =
+                from el in xElement.Descendants(tagName)
+                select el;
+            return xElements;
+        }
+
     }
 }
 

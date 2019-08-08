@@ -7,6 +7,6 @@ namespace FencingDataModels
     public class Match
     {
         public string ID { get; set; }
-        public List<MatchResult> matchResults{ get; set; }
+        public List<MatchResult> matchResults { get; set; }
     }
 }

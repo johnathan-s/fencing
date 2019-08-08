@@ -18,7 +18,7 @@ namespace FencingTournamentResultsXmlParser
         }
 
         [TestMethod]
-        public void ggetPoulesTest()
+        public void getPoulesTest()
         {
             IEnumerable<XElement> xPoules = parsePouleMatches.getPoules();
             Assert.IsNotNull(xPoules);
