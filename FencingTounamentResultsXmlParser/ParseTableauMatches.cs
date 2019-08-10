@@ -40,7 +40,7 @@ namespace FencingTournamentResultsXmlParser
                     foreach (XElement xMatch in getMatches(xTableau))
                     {
                         Match match = new Match();
-                        match.ID = xMatch.Attribute("ID").ToString();
+                        match.ID = xMatch.Attribute("ID").Value;
                         match.matchResults = new List<MatchResult>();
 
                         foreach (XElement xMatchResult in getMatchResults(xMatch))

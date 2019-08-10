@@ -50,10 +50,19 @@ namespace FencingTournamentResultsXmlParser
         }
 
         [TestMethod]
-        public void serializeTournamentMatchModelTest()
+        public void serializeTournamentMatchModelTest1()
         {
             List<TournamentMatchModel> tournamentMatchModels = tournamentResultsIntoTournamentMatchModel.getTournamentMatcheModels();
             string json = tournamentResultsIntoTournamentMatchModel.serializeTournamentMatchModel(tournamentMatchModels[0]);
+            Assert.IsFalse(String.IsNullOrEmpty(json));
+            Console.WriteLine(json);
+        }
+
+        [TestMethod]
+        public void serializeTournamentMatchModelTest2()
+        {
+            List<TournamentMatchModel> tournamentMatchModels = tournamentResultsIntoTournamentMatchModel.getTournamentMatcheModels();
+            string json = tournamentResultsIntoTournamentMatchModel.serializeTournamentMatchModel(tournamentMatchModels[tournamentMatchModels.Count -2]);
             Assert.IsFalse(String.IsNullOrEmpty(json));
             Console.WriteLine(json);
         }
