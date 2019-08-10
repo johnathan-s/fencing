@@ -22,25 +22,25 @@ namespace FencingTournamentResultsXmlParser
             foreach(XElement xPoule in getPoules())
             {
                 Poule poule         = new Poule();
-                poule.ID            = xPoule.Attribute("ID").ToString();
-                poule.Date          = xPoule.Attribute("Date").ToString();
-                poule.Heure         = xPoule.Attribute("Heure").ToString();
-                poule.Piste         = xPoule.Attribute("Piste").ToString();
-                poule.Statut        = xPoule.Attribute("Statut").ToString();
+                poule.ID            = xPoule.Attribute("ID").Value;
+                poule.Date          = xPoule.Attribute("Date").Value;
+                poule.Heure         = xPoule.Attribute("Heure").Value;
+                poule.Piste         = xPoule.Attribute("Piste").Value;
+                poule.Statut        = xPoule.Attribute("Statut").Value;
                 poule.pouleMatches  = new List<Match>();
 
                 foreach(XElement xMatch in getMatches(xPoule))
                 {
                     Match match = new Match();
-                    match.ID = xMatch.Attribute("ID").ToString();
+                    match.ID = xMatch.Attribute("ID").Value;
                     match.matchResults = new List<MatchResult>();
 
                     foreach(XElement xMatchResult in getMatchResults(xMatch))
                     {
                         MatchResult matchResult = new MatchResult();
-                        matchResult.REF     = xMatchResult.Attribute("REF").ToString();
-                        matchResult.Score   = xMatchResult.Attribute("Score").ToString();
-                        matchResult.Statut  = xMatchResult.Attribute("Statut").ToString();
+                        matchResult.REF     = xMatchResult.Attribute("REF").Value;
+                        matchResult.Score   = xMatchResult.Attribute("Score").Value;
+                        matchResult.Statut  = xMatchResult.Attribute("Statut").Value;
                         match.matchResults.Add(matchResult);
                     }
                     poule.pouleMatches.Add(match);

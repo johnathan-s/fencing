@@ -57,6 +57,7 @@
     <Compile Include="TestBase.cs" />
     <Compile Include="ParseCompetitionInformationTests.cs" />
     <Compile Include="ParseTournamentCompetitorsTests.cs" />
+    <Compile Include="TournamentResultsIntoTournamentMatchModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

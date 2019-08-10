@@ -22,19 +22,19 @@ namespace FencingTournamentResultsXmlParser
             foreach (XElement xSuiteDeTableaux in getSuiteDeTableaux())
             {
                 SuiteDeTableaux suiteDeTableaux = new SuiteDeTableaux();
-                suiteDeTableaux.ID              = xSuiteDeTableaux.Attribute("ID").ToString();
-                suiteDeTableaux.Lettre          = xSuiteDeTableaux.Attribute("Lettre").ToString();
-                suiteDeTableaux.NbDeTableaux    = xSuiteDeTableaux.Attribute("NbDeTableaux").ToString();
-                suiteDeTableaux.Titre           = xSuiteDeTableaux.Attribute("Titre").ToString();
+                suiteDeTableaux.ID              = xSuiteDeTableaux.Attribute("ID").Value;
+                suiteDeTableaux.Lettre          = xSuiteDeTableaux.Attribute("Lettre").Value;
+                suiteDeTableaux.NbDeTableaux    = xSuiteDeTableaux.Attribute("NbDeTableaux").Value;
+                suiteDeTableaux.Titre           = xSuiteDeTableaux.Attribute("Titre").Value;
 
                 suiteDeTableaux.tableaus        = new List<Tableau>();
 
                 foreach(XElement xTableau in getTableaus(xSuiteDeTableaux))
                 {
                     Tableau tableau     = new Tableau();
-                    tableau.ID          = xTableau.Attribute("ID").ToString();
-                    tableau.Taille      = xTableau.Attribute("Taille").ToString();
-                    tableau.Titre       = xTableau.Attribute("Titre").ToString();
+                    tableau.ID          = xTableau.Attribute("ID").Value;
+                    tableau.Taille      = xTableau.Attribute("Taille").Value;
+                    tableau.Titre       = xTableau.Attribute("Titre").Value;
                     tableau.matches     = new List<Match>();
 
                     foreach (XElement xMatch in getMatches(xTableau))
@@ -46,9 +46,9 @@ namespace FencingTournamentResultsXmlParser
                         foreach (XElement xMatchResult in getMatchResults(xMatch))
                         {
                             MatchResult matchResult     = new MatchResult();
-                            matchResult.REF             = xMatchResult.Attribute("REF").ToString();
-                            matchResult.Score           = xMatchResult.Attribute("Score").ToString();
-                            matchResult.Statut          = xMatchResult.Attribute("Statut").ToString();
+                            matchResult.REF             = xMatchResult.Attribute("REF").Value;
+                            matchResult.Score           = xMatchResult.Attribute("Score").Value;
+                            matchResult.Statut          = xMatchResult.Attribute("Statut").Value;
                             match.matchResults.Add(matchResult);
                         }
                         tableau.matches.Add(match);

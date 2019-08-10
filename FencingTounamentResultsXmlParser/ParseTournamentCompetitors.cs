@@ -30,51 +30,19 @@ namespace FencingTournamentResultsXmlParser
             {
                 TournamentCompetitors tournamentCompetitor = new TournamentCompetitors();
 
-                foreach (XAttribute attribute in tournamentCompetitorInst.Attributes())
-                {
-                    switch (attribute.Name.ToString())
-                    {
-                        case "Classement":
-                            tournamentCompetitor.Classement = attribute.Value;
-                            break;
-                        case "Club":
-                            tournamentCompetitor.Club = attribute.Value;
-                            break;
-                        case "DateNaissance":
-                            tournamentCompetitor.DateNaissance = attribute.Value;
-                            break;
-                        case "ID":
-                            tournamentCompetitor.ID = attribute.Value;
-                            break;
-                        case "Lateralite":
-                            tournamentCompetitor.Lateralite = attribute.Value;
-                            break;
-                        case "Licence":
-                            tournamentCompetitor.Licence = attribute.Value;
-                            break;
-                        case "Ligue":
-                            tournamentCompetitor.Ligue = attribute.Value;
-                            break;
-                        case "Nation":
-                            tournamentCompetitor.Nation = attribute.Value;
-                            break;
-                        case "Nom":
-                            tournamentCompetitor.Nom = attribute.Value;
-                            break;
-                        case "Prenom":
-                            tournamentCompetitor.Prenom = attribute.Value;
-                            break;
-                        case "Sexe":
-                            tournamentCompetitor.Sexe = attribute.Value;
-                            break;
-                        default:
-                            throw new Exception("unknown key found " + attribute.Name);
-                    }
-
-                }
+                tournamentCompetitor.Classement = tournamentCompetitorInst.Attribute("Classement").Value;
+                tournamentCompetitor.Club = tournamentCompetitorInst.Attribute("Club").Value;
+                tournamentCompetitor.DateNaissance = tournamentCompetitorInst.Attribute("DateNaissance").Value;
+                tournamentCompetitor.ID = tournamentCompetitorInst.Attribute("ID").Value;
+                tournamentCompetitor.Lateralite = tournamentCompetitorInst.Attribute("Lateralite").Value;
+                tournamentCompetitor.Licence = tournamentCompetitorInst.Attribute("Licence").Value;
+                tournamentCompetitor.Ligue = tournamentCompetitorInst.Attribute("Ligue").Value;
+                tournamentCompetitor.Nation = tournamentCompetitorInst.Attribute("Nation").Value;
+                tournamentCompetitor.Nom = tournamentCompetitorInst.Attribute("Nom").Value;
+                tournamentCompetitor.Prenom = tournamentCompetitorInst.Attribute("Prenom").Value;
+                tournamentCompetitor.Sexe = tournamentCompetitorInst.Attribute("Sexe").Value;
                 tournamentCompetitorList.Add(tournamentCompetitor);
             }
-
             return tournamentCompetitorList;
         }
     }

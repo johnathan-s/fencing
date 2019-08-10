@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +48,8 @@
     <Compile Include="ParseTournamentCompetitors.cs" />
     <Compile Include="ParseTournamentResultsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TournamentResultsIntoTournamentMatchModelBase.cs" />
+    <Compile Include="TournamentResultsIntoTournamentMatchModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TournamentXmlFiles\Presidents Cup Men%27s Epee.xml" />
