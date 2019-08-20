@@ -1,15 +1,21 @@
 ﻿using RestSharp;
-
+using System.Diagnostics;
 
 namespace RestUtilities
 {
-    public class RestCall
+    public class RestCall : IRestCall
     {
+        private RestClient client;
+        private string requestUrl;
 
-        public string doPost(string requestUrl, object body)
+        public RestCall(string url)
         {
-            var client = new RestClient(requestUrl);
+            requestUrl = url;
+            client = new RestClient(url);
+        }
 
+        public string DoPost(object body)
+        {
             var request = new RestRequest(requestUrl, Method.POST);
 
             request.RequestFormat = DataFormat.Json;
@@ -21,28 +27,21 @@ namespace RestUtilities
             // execute the request
             IRestResponse response = client.Execute(request);
 
-            System.Console.WriteLine("response code: " + response.StatusCode);
+            Debug.WriteLine("response code: " + response.StatusCode);
 
-            var content = response.Content; // raw content as string
-
-            return content;
+            return response.Content; // raw content as string
         }
 
-        public string doGet(string requestUrl)
+        public string DoGet()
         {
-            var client = new RestClient(requestUrl);
-            // client.Authenticator = new HttpBasicAuthenticator(username, password);
-
             var request = new RestRequest(requestUrl, Method.GET);
 
-            // execute the request
             IRestResponse response = client.Execute(request);
 
-            System.Console.WriteLine("response code: " + response.StatusCode);
+            Debug.WriteLine("response code: " + response.StatusCode);
 
-            var content = response.Content; // raw content as string
-
-            return content;
+            return response.Content; // raw content as string
         }
+
     }
 }

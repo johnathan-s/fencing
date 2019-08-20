@@ -2,6 +2,7 @@
 using RestUtilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace FencingResultsIntoElasticsearch
 {
@@ -40,11 +41,11 @@ namespace FencingResultsIntoElasticsearch
         {
             ElasticsearchUrlHelper elasticsearchUrlHelper = new ElasticsearchUrlHelper(indexName);
 
-            RestCall restCall = new RestCall();
-
             string url = elasticsearchUrlHelper.getElasticsearchUrl();
 
-            Console.WriteLine(restCall.doPost(url, serializedRanking));
+            RestCall restCall = new RestCall(url);
+
+            Debug.WriteLine(restCall.DoPost(serializedRanking));
 
         }
     }
